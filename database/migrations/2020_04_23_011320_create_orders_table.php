@@ -20,9 +20,11 @@ class CreateOrdersTable extends Migration
             $table->integer('status')->default(\App\order::NEW);
             $table->time('hour');
             $table->unsignedBigInteger('restaurant_id');
+            $table->unsignedBigInteger('travels_id');
             $table->timestamps();
 
             $table->foreign('restaurant_id')->references('id')->on('restaurants');
+            $table->foreign('travel_id')->references('id')->on('travels');
         });
     }
 
