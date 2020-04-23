@@ -16,12 +16,13 @@ class CreateTravelsTable extends Migration
         Schema::create('travels', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->float('location');
+            $table->float('origin');
+            $table->float('destination');
+            $table->text('messages');
 
             $table->bigInteger('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users');
 
-            $table->bigInteger('transport_id')->unsigned();
-            $table->foreign('transport_id')->references('id')->on('transports');
         });
     }
 

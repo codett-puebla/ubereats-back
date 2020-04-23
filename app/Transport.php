@@ -10,17 +10,10 @@ class Transport extends Model
         'id',
         'description',
         'color',
-        'licensePlate',
-        'brand',
-        'model',
-        'typeTransport'
     ];
 
     public function user(){
         return $this->belongsTo(User::class);
     }
 
-    public function travels(){
-        return $this->hasMany(Travel::class);
-    }
 }

@@ -17,10 +17,6 @@ class CreateTransportsTable extends Migration
             $table->bigIncrements('id');
             $table->string('description');
             $table->string('color')->nullable();
-            $table->string('licensePlate')->nullable();
-            $table->string('brand')->nullable();
-            $table->string('model')->nullable();
-            $table->tinyInteger('typeTransport');
 
             $table->bigInteger('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users');
