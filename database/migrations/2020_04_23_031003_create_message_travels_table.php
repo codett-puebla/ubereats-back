@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePaymentsTable extends Migration
+class CreateMessageTravelsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,9 @@ class CreatePaymentsTable extends Migration
      */
     public function up()
     {
-        Schema::create('payments', function (Blueprint $table) {
+        Schema::create('message_travels', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('detail');
-            $table->date('paidOut');
-            $table->float('total');
-            $table->time('hour');
+            $table->text('message');
 
             $table->bigInteger('travel_id')->unsigned();
             $table->foreign('travel_id')->references('id')->on('travels');
@@ -32,6 +29,6 @@ class CreatePaymentsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('payments');
+        Schema::dropIfExists('message_travels');
     }
 }

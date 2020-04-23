@@ -21,6 +21,14 @@ class Travel extends Model
     }
 
     public function payment(){
-        return $this->hasMany());
+        return $this->hasMany(Payment::class);
+    }
+
+    public function route(){
+        return $this->hasMany(Route::class);
+    }
+
+    public function messageTravel(){
+        return $this->hasMany(MessageTravel::class);
     }
 }
