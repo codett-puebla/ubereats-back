@@ -15,8 +15,11 @@ class CreateDishesTable extends Migration
     {
         Schema::create('dishes', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name');
+            $table->string('name', 500);
+            $table->string('description', 1000);
             $table->decimal('price', 10, 5);
+            $table->string('brand')->nullable(true);
+            $table->boolean('type')->default(\App\dish::FOOD);
             $table->time('preparation_time');
             $table->unsignedBigInteger('restaurant_id');
             $table->timestamps();

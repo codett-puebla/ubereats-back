@@ -6,12 +6,17 @@ use Illuminate\Database\Eloquent\Model;
 
 class dish extends Model
 {
+    const FOOD = 1;
+    const DRINK = 2;
+
     protected $fillable = [
       'id',
       'name',
       'price',
       'preparation_time',
-      'restaurant_id'
+      'restaurant_id',
+      'brand',
+      'type'
     ];
 
     public function restaurant(){

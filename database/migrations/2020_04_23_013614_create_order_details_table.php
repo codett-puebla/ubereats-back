@@ -17,13 +17,11 @@ class CreateOrderDetailsTable extends Migration
             $table->bigIncrements('id');
             $table->decimal('sale_price', 10, 5);
             $table->integer('quantity');
-            $table->unsignedBigInteger('dish_id')->nullable(true);;
-            $table->unsignedBigInteger('drink_id')->nullable(true);
+            $table->unsignedBigInteger('dish_id')->nullable(true);
             $table->unsignedBigInteger('order_id')->nullable(true);
             $table->timestamps();
 
             $table->foreign('dish_id')->references('id')->on('dishes');
-            $table->foreign('drink_id')->references('id')->on('drinks');
             $table->foreign('order_id')->references('id')->on('orders');
         });
     }

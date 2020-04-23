@@ -11,16 +11,11 @@ class order_detail extends Model
         'sale_price',
         'quantity',
         'dish_id',
-        'drink_id',
         'order_id'
     ];
 
     public function dish(){
         return $this->belongsTo(dish::class);
-    }
-
-    public function drink(){
-        return $this->belongsTo(drink::class);
     }
 
     public function order(){

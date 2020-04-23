@@ -18,7 +18,7 @@ class order extends Model
       'status',
       'hour',
       'restaurant_id',
-      'travel_id'
+      'user_id'
     ];
 
     public function restaurant(){
@@ -29,7 +29,7 @@ class order extends Model
         return $this->hasMany(order_detail::class);
     }
 
-    public function travel(){
-        return $this->belongsTo(Travel::class);
+    public function user(){
+        return $this->belongsTo(User::class);
     }
 }
