@@ -19,4 +19,8 @@ class Transport extends Model
     public function user(){
         return $this->belongsTo(User::class);
     }
+
+    public function travels(){
+        return $this->hasMany(Travel::class);
+    }
 }
