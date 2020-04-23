@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'id','name', 'email', 'password', 'email_verified_at', 'password', 'login', 'phone', 'location', 'typeUser'
     ];
 
     /**
@@ -39,5 +39,9 @@ class User extends Authenticatable
 
     public function travels(){
         return $this->hasMany(Travel::class);
+    }
+
+    public function transports(){
+        return $this->hasMany(Transport::class);
     }
 }
