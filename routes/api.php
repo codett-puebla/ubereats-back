@@ -16,3 +16,4 @@ use Illuminate\Http\Request;
 
 Route::resource('user','User\UserController',['only' => ['show']]);
 Route::resource('restaurant','Restaurant\RestaurantController',['only' => ['show', 'index']]);
+Route::resource('dish','Dish\DishController',['only' => ['show', 'index']]);
