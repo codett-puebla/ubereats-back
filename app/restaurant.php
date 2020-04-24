@@ -21,11 +21,7 @@ class restaurant extends Model
         return $this->hasMany(dish::class);
     }
 
-    public function drinks(){
-        return $this->hasMany(drink::class);
-    }
-
-    public function restaurants(){
+    public function orders(){
         return $this->hasMany(order::class);
     }
 }
