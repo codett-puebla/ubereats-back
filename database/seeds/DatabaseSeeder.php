@@ -26,5 +26,14 @@ class DatabaseSeeder extends Seeder
           }
         );
 
+        \App\User::create([
+            'name' => 'Admin',
+            'email' => 'admin@admin.com',
+            'password' => bcrypt('secret'),
+            'login' => 'admin@admin.com',
+            'phone' => '0000000000',
+            'location' => '1.1',
+            'typeUser' => 1
+        ]);
     }
 }

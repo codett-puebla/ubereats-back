@@ -18,3 +18,7 @@ Route::resource('user','User\UserController',['only' => ['show']]);
 Route::resource('restaurant','Restaurant\RestaurantController',['only' => ['show', 'index']]);
 Route::resource('dish','Dish\DishController',['only' => ['show', 'index']]);
 Route::resource('order','Order\OrderController',['except' => ['create','edit']]);
+
+//ROUTES PASSPORT
+Route::post('oauth/token', '\Laravel\Passport\Http\Controllers\AccessTokenController@issueToken');
+//END ROUTES PASSPORT
