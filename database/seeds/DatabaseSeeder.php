@@ -18,7 +18,7 @@ class DatabaseSeeder extends Seeder
         factory(\App\restaurant::class, $restaurantQuantity)->create();
         factory(\App\dish::class, $disQuantity)->create()->each(
           function ($dish){
-              $restaurants = \App\restaurant::all()->random(mt_rand(1, 5))->pluck('id');
+              $restaurants = \App\restaurant::all()->random(mt_rand(1, 1))->pluck('id');
               foreach ($restaurants as $restaurant){
                   $dish->restaurant()->associate($restaurant);
                   $dish->save();

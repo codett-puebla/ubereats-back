@@ -42,7 +42,7 @@ $factory->define(\App\dish::class, function (Faker $faker) {
     return [
         'name' => $faker->name,
         'description' => $faker->city,
-        'price' => $faker->randomFloat(5,1,5),
+        'price' => $faker->randomFloat(4,1,5),
         'brand' => $faker->name,
         'type' => $type = $faker->randomElement([\App\dish::FOOD, \App\dish::DRINK]),
         'preparation_time' => $faker->time()
