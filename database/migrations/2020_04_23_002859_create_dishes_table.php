@@ -21,7 +21,7 @@ class CreateDishesTable extends Migration
             $table->string('brand')->nullable(true);
             $table->boolean('type')->default(\App\dish::FOOD);
             $table->time('preparation_time');
-            $table->unsignedBigInteger('restaurant_id');
+            $table->unsignedBigInteger('restaurant_id')->nullable(true);
             $table->timestamps();
 
             $table->foreign('restaurant_id')->references('id')->on('restaurants');

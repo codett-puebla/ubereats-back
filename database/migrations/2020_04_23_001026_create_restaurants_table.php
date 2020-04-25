@@ -16,8 +16,8 @@ class CreateRestaurantsTable extends Migration
         Schema::create('restaurants', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
-            $table->float('rank');
-            $table->float('delivery_cost');
+            $table->float('rank',6,1);
+            $table->float('delivery_cost',15,4);
             $table->time('wait_time');
             $table->string('food_kind')->nullable(true);
             $table->decimal('lat',15,9)->default(0.0);
