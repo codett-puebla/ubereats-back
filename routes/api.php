@@ -15,6 +15,8 @@ use Illuminate\Http\Request;
 
 //ROUTE USER
 Route::resource('user','User\UserController',['only' => ['show']]);
+Route::get('get_user', 'User\UserController@getUser');
+Route::get('get_transport', 'User\UserController@getMyTransports');
 //END ROUTES PASSPORT
 
 //ROUTES RESTAURANT
