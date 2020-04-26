@@ -15,14 +15,17 @@ class CreateTravelsTable extends Migration
     {
         Schema::create('travels', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->float('location');
-            $table->float('origin');
-            $table->float('destination');
-            $table->text('messages');
+
+            $table->text('location');
+            $table->text('origin');
+            $table->text('destination');
+            $table->text('messages')->nullable(true);
 
             $table->bigInteger('user_id')->unsigned();
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->bigInteger('order_id')->unsigned()->nullable(true);
 
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('order_id')->references('id')->on('orders');
         });
     }
 

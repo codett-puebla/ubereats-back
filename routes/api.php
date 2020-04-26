@@ -17,6 +17,7 @@ use Illuminate\Http\Request;
 Route::resource('user','User\UserController',['only' => ['show']]);
 Route::resource('restaurant','Restaurant\RestaurantController',['only' => ['show', 'index']]);
 Route::resource('dish','Dish\DishController',['only' => ['show', 'index']]);
+Route::resource('travel','Travel\TravelController',['except' => ['create','edit']]);
 Route::resource('order','Order\OrderController',['except' => ['create','edit']]);
 
 //ROUTES PASSPORT
