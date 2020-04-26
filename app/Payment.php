@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Payment extends Model
 {
+    public $timestamps = false;
+
     protected $fillable = [
         'id',
         'detail',
@@ -15,7 +17,7 @@ class Payment extends Model
         'travel_id'
     ];
 
-    public function travels(){
-        return $this->hasMany(Travel::class);
+    public function travel(){
+        return $this->belongsTo(Travel::class);
     }
 }
