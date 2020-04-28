@@ -11,6 +11,10 @@ class RestaurantController extends ApiController
     public function index()
     {
         $restaurants = restaurant::all();
+
+        foreach ($restaurants as $restaurant){
+            $restaurant->orders;
+        }
         return $this->showAll($restaurants);
     }
 

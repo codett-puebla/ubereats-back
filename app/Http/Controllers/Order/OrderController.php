@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Order;
 
 use App\order;
+use App\order_detail;
 use Illuminate\Http\Request;
 use App\Http\Controllers\ApiController;
 
@@ -10,7 +11,14 @@ class OrderController extends ApiController
 {
     public function index()
     {
-        return $this->showAll(order::all());
+        $orders = order::all();
+
+        foreach ($orders as $order){
+            $order->order_details;
+            $order->restaurant;
+        }
+
+        return $this->showAll($orders);
     }
 
     public function store(Request $request)
@@ -27,9 +35,18 @@ class OrderController extends ApiController
 
         $this->validate($request,$rules);
 
-        $order = order::create($request->all());
-        return $this->showOne($order);
+        $order = new order($request->all());
+        $order->user_id = Auth::id();
+        $order->save();
 
+        if($request->has("order_details")){
+            $order_details = $request->all()["order_details"];
+            foreach ($order_details as $order_detail){
+                $newOrderDetail = new order_detail($order_detail);
+                $order->order_details()->save($newOrderDetail);
+            }
+        }
+        return $this->showOne($order);
     }
 
     public function show(order $order)

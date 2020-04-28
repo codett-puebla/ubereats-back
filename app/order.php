@@ -25,6 +25,7 @@ class order extends Model
         return $this->belongsTo(restaurant::class);
     }
 
+
     public function order_details(){
         return $this->hasMany(order_detail::class);
     }
